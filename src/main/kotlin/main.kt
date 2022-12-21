@@ -60,6 +60,7 @@ fun getCommission(type: String, allSum: Int = 0, sum: Int): Int {
         "VK Pay" -> {
             0;
         }
+
         "Visa", "Мир" -> {
             var commission: Int = (sum * 0.0075).toInt();
             return if (commission < 35) {
@@ -68,13 +69,16 @@ fun getCommission(type: String, allSum: Int = 0, sum: Int): Int {
                 commission;
             }
         }
+
         "Mastercard", "Maestro" -> {
-            return if (allSum in 30..75000) {
+            val totalSum = allSum + sum;
+            return if (totalSum in 300..75000) {
                 0;
             } else {
                 (sum * 0.006).toInt() + 20;
             }
         }
+
         else -> 0;
     }
 
