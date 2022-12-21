@@ -24,7 +24,7 @@ class MainKtTest {
             typeCard,
             sum = amount
         );
-        assertEquals(35, resul);
+        assertEquals(351, resul);
     }
 
     @Test
